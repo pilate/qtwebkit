@@ -120,7 +120,9 @@ EvalExecutable::EvalExecutable(ExecState* exec, PassRefPtr<CodeCache> codeCache,
     : ScriptExecutable(exec->vm().evalExecutableStructure.get(), exec, source, inStrictContext)
     , m_codeCache(codeCache)
 {
-    printf("Testing\n");
+    printf("Source: ");
+    printf(source.toString().utf8().data());
+    printf("\n");
 }
 
 void EvalExecutable::destroy(JSCell* cell)
