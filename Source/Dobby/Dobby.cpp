@@ -1,6 +1,5 @@
 #include "config.h"
 
-#include <parser/SourceCode.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
 
@@ -13,7 +12,7 @@ namespace Dobby {
     void Write(const char* event, const char* data) {
         printf("Event: ");
         printf(event);
-        printf("\nData:");
+        printf("\nData: ");
         printf(data);
         printf("\n");
     }
@@ -22,8 +21,5 @@ namespace Dobby {
     }
     void Write(const char* event, const WTF::String data) {
         Dobby::Write(event, data.utf8());
-    }
-    void Write(const char* event, const JSC::SourceCode& data) {
-        Dobby::Write(event, data.toString());
     }
 }
