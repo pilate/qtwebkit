@@ -122,7 +122,7 @@ EvalExecutable::EvalExecutable(ExecState* exec, PassRefPtr<CodeCache> codeCache,
     : ScriptExecutable(exec->vm().evalExecutableStructure.get(), exec, source, inStrictContext)
     , m_codeCache(codeCache)
 {
-    Dobby::Write(source.toString().utf8().data(), source.toString().utf8().data());
+    Dobby::Write("js-eval", source);
 }
 
 void EvalExecutable::destroy(JSCell* cell)
