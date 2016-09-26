@@ -325,6 +325,7 @@ SOURCES += \
     tools/CodeProfile.cpp \
     tools/CodeProfiling.cpp \
     yarr/YarrJIT.cpp \
+    ../Dobby/Dobby.cpp \
 
 linux-*:if(isEqual(QT_ARCH, "i386")|isEqual(QT_ARCH, "x86_64")) {
     SOURCES += \

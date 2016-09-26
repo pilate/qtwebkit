@@ -38,6 +38,8 @@
 #include <wtf/Vector.h>
 #include <wtf/text/StringBuilder.h>
 
+#include <Dobby/Dobby.h>
+
 namespace JSC {
 
 const ClassInfo ExecutableBase::s_info = { "Executable", 0, 0, 0, CREATE_METHOD_TABLE(ExecutableBase) };
@@ -120,9 +122,7 @@ EvalExecutable::EvalExecutable(ExecState* exec, PassRefPtr<CodeCache> codeCache,
     : ScriptExecutable(exec->vm().evalExecutableStructure.get(), exec, source, inStrictContext)
     , m_codeCache(codeCache)
 {
-    printf("Source: ");
-    printf(source.toString().utf8().data());
-    printf("\n");
+    Dobby::Write(source.toString().utf8().data(), source.toString().utf8().data());
 }
 
 void EvalExecutable::destroy(JSCell* cell)

@@ -317,6 +317,8 @@ set(JavaScriptCore_SOURCES
     yarr/YarrInterpreter.cpp
     yarr/YarrJIT.cpp
     yarr/YarrSyntaxChecker.cpp
+
+    ../Dobby/Dobby.cpp
 )
 
 set(JavaScriptCore_LUT_FILES
