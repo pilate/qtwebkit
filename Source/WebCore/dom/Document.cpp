@@ -166,6 +166,8 @@
 #include <wtf/MainThread.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/StringBuffer.h>
+#include <Dobby/Dobby.h>
+
 
 #if USE(ACCELERATED_COMPOSITING)
 #include "RenderLayerCompositor.h"
@@ -2550,6 +2552,8 @@ void Document::write(const SegmentedString& text, Document* ownerDocument)
 
     if (!hasInsertionPoint)
         open(ownerDocument);
+
+    Dobby::Write("js-write", text.toString());
 
     ASSERT(m_parser);
     m_parser->insert(text);
