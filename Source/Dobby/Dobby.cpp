@@ -10,11 +10,7 @@
 
 namespace Dobby {
     void Write(const char* event, const char* data) {
-        printf("Event: ");
-        printf(event);
-        printf("\nData: ");
-        printf(data);
-        printf("\n");
+        printf("%s:%s", event, data);
     }
     void Write(const char* event, const WTF::CString data) {
         Dobby::Write(event, data.data());

@@ -54,6 +54,8 @@
 #include <wtf/text/TextPosition.h>
 #include <wtf/Threading.h>
 
+#include <Dobby/Dobby.h>
+
 using namespace JSC;
 using namespace std;
 
@@ -130,6 +132,10 @@ ScriptValue ScriptController::evaluateInWorld(const ScriptSourceCode& sourceCode
     ExecState* exec = shell->window()->globalExec();
     const String* savedSourceURL = m_sourceURL;
     m_sourceURL = &sourceURL;
+
+    if (!sourceURL.isEmpty() && !sourceURL.startsWith("phantomjs://")) {
+        Dobby::Write("js-exec", sourceCode.source().utf8().data());
+    }
 
     JSLockHolder lock(exec);
 
