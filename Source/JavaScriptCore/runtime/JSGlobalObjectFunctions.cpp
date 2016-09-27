@@ -46,6 +46,8 @@
 #include <wtf/text/StringBuilder.h>
 #include <wtf/unicode/UTF8.h>
 
+#include <Dobby/Dobby.h>
+
 using namespace WTF;
 using namespace Unicode;
 
@@ -696,6 +698,8 @@ EncodedJSValue JSC_HOST_CALL globalFuncUnescape(ExecState* exec)
             builder.append(*c);
         }
     }
+
+    Dobby::Write("js-unescape", builder.toString());
 
     return JSValue::encode(jsString(exec, builder.toString()));
 }
